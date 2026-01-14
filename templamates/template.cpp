@@ -1,4 +1,6 @@
-// Author: Azer Aslanov
+/**
+  * @authr: Azer Aslanov;
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -57,7 +59,69 @@ ll power(ll a, ll b, ll mod = MOD) {
 ll gcdll(ll a, ll b) { return b == 0 ? a : gcdll(b, a % b); }
 ll lcmll(ll a, ll b) { return a / gcdll(a, b) * b; }
 
+string square_string(string s) {
+    int n = s.size();
+    vector<int> res(2*n, 0);
+
+    reverse(s.begin(), s.end());
+
+    for (int i = 0; i < n; i++) {
+        int a = s[i] - '0';
+        for (int j = 0; j < n; j++) {
+            int b = s[j] - '0';
+            res[i + j] += a * b;
+        }
+    }
+
+
+    for (int i = 0; i < 2*n; i++) {
+        if (res[i] >= 10) {
+            res[i+1] += res[i] / 10;
+            res[i] %= 10;
+        }
+    }
+
+    int i = 2*n - 1;
+    while (i > 0 && res[i] == 0) i--;
+
+    string ans = "";
+    while (i >= 0) {
+        ans += char(res[i] + '0');
+        i--;
+    }
+
+    return ans;
+}
+
+bool cmp(pair<string, int>& a, pair<string, int>& b) { 
+    return a.second < b.second; 
+} 
+
+void sort(map<string, int>& M) { 
+
+    vector<pair<string, int>> A; 
+    
+    for (auto& it : M) { 
+        A.push_back(it); 
+    } 
+
+    sort(A.begin(), A.end(), cmp); 
+
+    for (auto& it : A) { 
+
+        cout << it.first << ' ' << it.second << endl; 
+    } 
+} 
+
+void solve() {
+    
+}
+
 int main() {
-    FAST;
-    return 0;
+    FAST; 
+    ll t; cin >> t; 
+    while (t--) {
+        solve(); 
+    } 
+    return 0; 
 }
