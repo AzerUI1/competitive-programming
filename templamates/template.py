@@ -1,4 +1,6 @@
-# Author: Azer Aslanov
+'''
+    Author: Azer Aslanov
+'''
 
 import sys
 import threading
