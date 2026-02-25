@@ -1,6 +1,6 @@
 # Number Guessing Game (Binary Search Based)
 
-This game is not just a simple number guessing game. If you understand computer programming, you’ll realize that it is actually based on the **binary search algorithm**.
+This game is not just a simple number guessing game. If you understand competitive programming, you’ll realize that it is actually based on the **binary search algorithm**.
 
 Instead of guessing randomly, the game narrows down the possible numbers by repeatedly dividing the range in half. This makes the process much faster and more efficient.
 
