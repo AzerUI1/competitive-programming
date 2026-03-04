@@ -82,4 +82,3 @@ Print a single integer — the number of **real XP-sharing pairs** in the round.
 - Real pairs: (2,2), (3,3) → 2 real pairs.  
 - Remaining 2 and 4 are “lies” and do not count.  
 
-```
