@@ -82,11 +82,4 @@ Print a single integer — the number of **real XP-sharing pairs** in the round.
 - Real pairs: (2,2), (3,3) → 2 real pairs.  
 - Remaining 2 and 4 are “lies” and do not count.  
 
----
-
-## Notes
-
-- Array length can be odd or even.  
-- Only **identical XP values** can form a pair.  
-- Each XP is used **at most once**.  
 ```
