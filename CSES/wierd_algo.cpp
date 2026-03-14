@@ -43,12 +43,15 @@ const ll INF = 9e18;
 ll power(ll a, ll b, ll mod = MOD) 
 {
   ll r = 1;
-  while (b) {
+  while (b) 
+  {
     if (b & 1)
       r = (r * a) % mod;
+    
     a = (a * a) % mod;
     b >>= 1;
   }
+  
   return r;
 }
 
@@ -57,14 +60,33 @@ ll lcmll(ll a, ll b) { return a / gcdll(a, b) * b; }
 
 void solve() 
 {
-  return; 
+	ll n; 
+	cin >> n; 
+	
+	// O(n) - Time Complexity
+	while (n != 1) 
+	{
+		cout << n << " "; 
+		if (n % 2 == 0) 
+		{
+			n /= 2; 
+		} 
+		else
+		{
+			n = 3 * n + 1; 
+		} 
+	} 
+
+	cout << 1 << "\n"; 
+
+	return; 
 }
 
 int main() 
 {
-  FAST;
+	FAST;
   
-  solve(); 
+	solve(); 
 
-  return 0;
+	return 0;
 }
