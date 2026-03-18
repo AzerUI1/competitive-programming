@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Author-Azer%20Aslanov-blueviolet?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Topic-Competitive%20Programming-000000?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Languages-C++%20%7C%20%20%7C%20-informational?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Languages-C++%20%7C-informational?style=for-the-badge" />
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
