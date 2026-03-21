@@ -19,12 +19,30 @@ void solve()
 	ll n;
        	cin >> n; 
 	
-	vecotr<ll> arr; 
+	vector<ll> a(n + 5, 0); 
+	vector<ll> v; 
 
-	for (ll i = 0; i  < n; i++) 
+	for (ll i = 1; i * i <= n; i++) 
 	{
+		for (ll j = i + 1; i * i + j * j <= n; j++) 
+		{
+			ll k = i * i + j * j; 
+			a[k]++; 
+		} 
+	} 	
 
-	} 
+	for (ll i = 1; i <= n; i++) 
+	{
+		if (v[i] == 1) 
+		{
+			b.push_back(v[i]);
+		} 
+	}
+
+	cout << b.size() << "\n"; 
+
+	for (ll i = 0; i < b.size(); i++) 
+		cout << b[i] << " "; 
 		
 } 
 
