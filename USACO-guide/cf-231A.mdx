@@ -1,0 +1,69 @@
+---
+id: cf-231A
+resource: CF
+title: Team
+autor: Azer Aslanov
+---
+
+## Explanation
+
+The problem is asking us to determine how many problems have been solved by at least two team members. We can solve this by iterating through the list of problems and counting how many team members have solved each problem. If at least two team members have solved a problem, we can increment our count.
+
+## Implementation
+**Time Complexity:** $O(n)$, where $n$ is the number of problems.
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        if (a + b + c >= 2) {
+            count++;
+        }
+    }
+
+    cout << count << endl;
+    return 0;
+}
+```
+
+```python
+n = int(input())
+count = 0
+for _ in range(n):
+    a, b, c = map(int, input().split())
+    if a + b + c >= 2:
+        count += 1
+print(count)
+```
+
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            int c = scanner.nextInt();
+
+            if (a + b + c >= 2) {
+                count++;
+            }
+        }
+        System.out.println(count);
+        scanner.close();
+    }
+}
+```
