@@ -1,0 +1,62 @@
+---
+id: cf-4A
+resource: CF
+title: Watermelon
+author: Azer Aslanov
+---
+
+## Explanation
+
+The problem is asking us to determine if a given weight of watermelon can be split into two even parts.
+To solve this, we can check if the weight is even and greater than 2. If it is, then we can split it into two even parts. If it's odd or less than or equal to 2, then it's not possible to split it as required.
+
+Here is a simple implementation in Python:
+
+## Implementation
+
+**Time Complexity:** $O(1)$
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int weight;
+    cin >> weight;
+
+    if (weight > 2 && weight % 2 == 0) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+```
+
+```python
+weight = int(input())
+if weight > 2 and weight % 2 == 0:
+    print("YES")
+else:
+    print("NO")
+```
+
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int weight = scanner.nextInt();
+
+        if (weight > 2 && weight % 2 == 0) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+        scanner.close();
+    }
+}
+```
