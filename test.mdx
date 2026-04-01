@@ -1,0 +1,41 @@
+---
+id: cf-4A
+source: CF
+title: Watermelon
+author: Azer Aslanov
+---
+
+[Official problem](https://codeforces.com/problemset/problem/4/A)
+
+## Explanation
+
+We can split the watermelon into two positive even weights **iff** $w$ is even and $w > 2$.
+
+### Examples
+
+- $w = 2$ → 1 and 1 (**NO**)
+- $w = 3$ → 2 and 1 or 1 and 2 (**NO**)
+- $w = 14$ → 8 and 6 (**YES**)
+
+## Implementation
+
+**Time Complexity:** $\mathcal{O}(1)$
+
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long w; // input watermelon weight
+    cin >> w;
+
+    if (w > 2 && w % 2 == 0) { // check if weight is even and > 2
+        cout << "YES\n";
+    } else {
+        cout << "NO\n";
+    }
+
+    return 0;
+}
+```
