@@ -1,0 +1,62 @@
+---
+id: cf-546A
+resource: CF
+title: Soldier and Bananas
+author: Azer Aslanov
+---
+
+[Official Problem](https://codeforces.com/problemset/problem/546/A)
+
+## Explanation
+
+The problem is asking us to determine how many dollars the soldier needs to borrow in order to buy `w` bananas, given that the cost of the `i`-th banana is `i * k` dollars. We can calculate the total cost of the bananas using the formula for the sum of the first `w` natural numbers, which is `w * (w + 1) / 2`. Then we can multiply this sum by `k` to get the total cost. Finally, we can subtract the amount of money `n` that the soldier has from the total cost to find out how much he needs to borrow. If the result is negative, it means he doesn't need to borrow any money.
+
+## Implementation
+**Time Complexity:** $O(1)$
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int k, w, n;
+    cin >> k >> w >> n;
+
+    long long total_cost = (long long)w * (w + 1) / 2 * k;
+    long long borrow = total_cost - n;
+
+    if (borrow < 0) {
+        borrow = 0;
+    }
+
+    cout << borrow << endl;
+    return 0;
+}
+
+```python
+k, w, n = map(int, input().split())
+total_cost = w * (w + 1) // 2 * k
+borrow = total_cost - n
+if borrow < 0:
+    borrow = 0
+print(borrow)
+```
+
+```java
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int k = scanner.nextInt();
+        int w = scanner.nextInt();
+        int n = scanner.nextInt();
+        long total_cost = (long)w * (w + 1) / 2 * k;
+        long borrow = total_cost - n;
+        if (borrow < 0) {
+            borrow = 0;
+        }
+        System.out.println(borrow);
+    }
+}
+```
