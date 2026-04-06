@@ -1,0 +1,44 @@
+---
+id: abc139_b
+resource: AtCoder
+title: Power Socket
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc139/tasks/abc139_b)
+
+## Explanation
+
+We start with one available socket. Each power strip uses one socket and adds `A - 1` new sockets, so the total number of sockets increases by `A - 1` each time.
+
+We need the smallest number of strips `x` such that:
+
+```text
+1 + x * (A - 1) >= B
+```
+
+Rearranging gives:
+
+```text
+x = ceil((B - 1) / (A - 1))
+```
+
+## Implementation 
+
+```cpp 
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    ll a, b; 
+    cin >> a >> b; 
+    ll ans = 0, cnt = 1; 
+    while (cnt < b) {
+        cnt--; 
+        cnt += a; 
+
+        ans++; 
+    }
+    cout << ans << "\n";     
+    return 0;
+}
+```
