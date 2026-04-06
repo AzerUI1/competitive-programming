@@ -20,19 +20,33 @@ const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
 void solve() {
-    ll a, b; 
-    cin >> a >> b; 
+    ll n, a, b; 
+    string s; 
+    cin >> n >> a >> b >> s; 
 
-    ll ans = 0, cnt = 1; 
-    while (cnt < b) {
-        cnt--; 
-        cnt += a; 
+    ll all = 0, cnt_b = 0; 
+    
+    for (char c : s) {
+        if (c == 'a') {
+            if (all < a + b) {  
+                cout << "Yes\n"; 
+                all++;
+            }  else {
+                cout << "No\n"; 
+            }
+        } else if (c == 'b') {
+            if (all < a + b && cnt_b < b) {
+                cout << "Yes\n";
+                all++;
+                cnt_b++;
+            } else {
+                cout << "No\n"; 
+            }
+        } else {
+            cout << "No\n"; 
+        }
 
-        ans++; 
     }
-
-    cout << ans << "\n"; 
-
     return; 
 }
 

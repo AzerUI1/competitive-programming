@@ -1,0 +1,75 @@
+---
+id: codefestival-2016-qualB-b
+resource: atcoder 
+title: Qualification Simulator
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/code-festival-2016-qualb/tasks/codefestival_2016_qualB_b)
+
+## Explanation
+
+We process participants from rank `1` to rank `N`.
+
+Keep two counters:
+
+- `passed`: total number of accepted participants so far.
+- `overseasPassed`: number of accepted overseas students (`'b'`) so far.
+
+Rules while scanning each character in `S`:
+
+- If `S[i] == 'a'` (Japanese student):
+  Accept if `passed < A + B`.
+- If `S[i] == 'b'` (overseas student):
+  Accept if both are true:
+  - `passed < A + B`
+  - `overseasPassed < B`
+- If `S[i] == 'c'` (not a student):
+  Reject.
+
+For each participant, print:
+
+- `Yes` if accepted
+- `No` otherwise
+
+## Implementation
+
+**Time Complexity:** $O(N)$
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int N, A, B;
+	string S;
+	cin >> N >> A >> B;
+	cin >> S;
+
+	int passed = 0;
+	int overseasPassed = 0;
+
+	for (char ch : S) {
+		if (ch == 'a') {
+			if (passed < A + B) {
+				cout << "Yes\n";
+				passed++;
+			} else {
+				cout << "No\n";
+			}
+		} else if (ch == 'b') {
+			if (passed < A + B && overseasPassed < B) {
+				cout << "Yes\n";
+				passed++;
+				overseasPassed++;
+			} else {
+				cout << "No\n";
+			}
+		} else {
+			cout << "No\n";
+		}
+	}
+
+	return 0;
+}
+```
