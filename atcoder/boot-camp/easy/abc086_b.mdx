@@ -1,0 +1,37 @@
+---
+id: abc086-b
+source: AtCoder
+title: 1 21
+author: Azer Aslanov
+---
+
+## Explanation
+
+We are given two numbers as strings.
+We concatenate them into one number and check whether it is a perfect square.
+
+1. Read two strings `a` and `b`.
+2. Concatenate them → `s = a + b`.
+3. Convert `s` to an integer `n`.
+4. Compute `x = floor(sqrt(n))`.
+5. If `x * x == n`, print `"Yes"`, otherwise `"No"`.
+
+## Implementation
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string a, b;
+    cin >> a >> b;
+
+    string s = a + b;
+    int n = stoi(s);
+
+    int x = sqrt(n);
+
+    if (x * x == n) cout << "Yes";
+    else cout << "No";
+}
+```
