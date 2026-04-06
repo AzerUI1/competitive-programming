@@ -1,0 +1,55 @@
+---
+id: abc055_b
+resource: AtCoder
+title: Training Camp
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc055/tasks/abc055_b)
+
+## Explanation
+
+We need to compute:
+
+```text
+N! mod (10^9 + 7)
+```
+
+The value of `N!` grows very fast, so we take modulo at every multiplication step.
+
+Algorithm:
+
+1. Start with `ans = 1`.
+2. For each `i` from `1` to `N`, do:
+   `ans = (ans * i) % MOD`.
+3. Print `ans`.
+
+This works because modular multiplication is associative:
+
+```text
+(a * b) mod M = ((a mod M) * (b mod M)) mod M
+```
+
+## Implementation
+
+**Time Complexity:** $O(N)$
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	const long long MOD = 1000000007LL;
+
+	int n;
+	cin >> n;
+
+	long long ans = 1;
+	for (int i = 1; i <= n; i++) {
+		ans = (ans * i) % MOD;
+	}
+
+	cout << ans << '\n';
+	return 0;
+}
+```
