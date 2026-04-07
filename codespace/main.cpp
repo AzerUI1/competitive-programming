@@ -8,6 +8,7 @@
 
 using namespace std;
 using ll = long long;
+
 // using namespace __gnu_pbds;
 
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL)
@@ -20,41 +21,34 @@ const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
 void solve() {
-    ll n, a, b; 
-    string s; 
-    cin >> n >> a >> b >> s; 
+    ll a, b;
+    cin >> a >> b;
 
-    ll all = 0, cnt_b = 0; 
-    
-    for (char c : s) {
-        if (c == 'a') {
-            if (all < a + b) {  
-                cout << "Yes\n"; 
-                all++;
-            }  else {
-                cout << "No\n"; 
-            }
-        } else if (c == 'b') {
-            if (all < a + b && cnt_b < b) {
-                cout << "Yes\n";
-                all++;
-                cnt_b++;
-            } else {
-                cout << "No\n"; 
-            }
-        } else {
-            cout << "No\n"; 
-        }
-
+    if ((a <= 0 && b >= 0) || (a == 0 || b == 0)) {
+        cout << "Zero\n";
+        return;
     }
-    return; 
+
+    if (a > 0 && b > 0) {
+        cout << "Positive\n";
+        return;
+    }
+
+    if (a < 0 && b < 0) {
+        ll x = abs(b - a) + 1;
+
+        if (x % 2 == 0) {cout << "Positive\n"; return;}
+        else {cout << "Negative\n"; return;}
+    }
+
+    return;
 }
 
 int main() {
     fast_io;
 
     int t = 1;
-    // cin >> t; 
+    // cin >> t;
     while (t--) {
         solve();
     }

@@ -1,0 +1,46 @@
+---
+id: agc002-a
+resource: AztCoder
+title: Range Product
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc149/tasks/agc002_a)
+
+
+## Explanation
+
+
+## Implementation
+
+**Time Complexity:** $O(\sqrt{n})$
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    long long a, b;
+    cin >> a >> b;
+
+    if ((a <= 0 && b >= 0) || (a == 0 || b == 0)) {
+        cout << "Zero\n";
+        return;
+    }
+
+    if (a > 0 && b > 0) {
+        cout << "Positive\n";
+        return;
+    }
+
+    if (a < 0 && b < 0) {
+        ll x = abs(b - a) + 1;
+
+        if (x % 2 == 0) {cout << "Positive\n"; return;}
+        else {cout << "Negative\n"; return;}
+    }
+
+    return 0;
+}
+```
