@@ -1,44 +1,41 @@
 ---
 id: agc002-a
-resource: AztCoder
+resource: AtCoder
 title: Range Product
 author: Azer Aslanov
 ---
 
-[Official Problem](https://atcoder.jp/contests/abc149/tasks/agc002_a)
-
+[Official Problem](https://atcoder.jp/contests/agc002/tasks/agc002_a)
 
 ## Explanation
 
+We need the sign of the product of all integers in the interval $[a, b]$.
+
+1. If the interval contains $0$ (that is, $a \le 0 \le b$), then the product is `Zero`.
+2. If all numbers are positive ($a > 0$), then the product is `Positive`.
+3. Otherwise, all numbers are negative ($b < 0$):
+   let $cnt = b - a + 1$ be the number of factors.
+   If $cnt$ is even, product is `Positive`; if odd, product is `Negative`.
 
 ## Implementation
 
-**Time Complexity:** $O({1})$
+**Time Complexity:** $O(1)$
 
 ```cpp
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int main() {
     long long a, b;
     cin >> a >> b;
 
-    if ((a <= 0 && b >= 0) || (a == 0 || b == 0)) {
+    if (a <= 0 && b >= 0) {
         cout << "Zero\n";
-        return;
-    }
-
-    if (a > 0 && b > 0) {
+    } else if (a > 0) {
         cout << "Positive\n";
-        return;
-    }
-
-    if (a < 0 && b < 0) {
-        ll x = abs(b - a) + 1;
-
-        if (x % 2 == 0) {cout << "Positive\n"; return;}
-        else {cout << "Negative\n"; return;}
+    } else {
+        long long cnt = b - a + 1;
+        cout << (cnt % 2 == 0 ? "Positive\n" : "Negative\n");
     }
 
     return 0;

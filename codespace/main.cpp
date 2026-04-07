@@ -21,25 +21,17 @@ const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
 void solve() {
-    ll a, b;
+    string a, b;
     cin >> a >> b;
 
-    if ((a <= 0 && b >= 0) || (a == 0 || b == 0)) {
-        cout << "Zero\n";
-        return;
+    string ans = "";
+
+    for (ll i = 0; i < max(a.size(), b.size()); i++) {
+        ans += a[i];
+        ans += b[i];
     }
 
-    if (a > 0 && b > 0) {
-        cout << "Positive\n";
-        return;
-    }
-
-    if (a < 0 && b < 0) {
-        ll x = abs(b - a) + 1;
-
-        if (x % 2 == 0) {cout << "Positive\n"; return;}
-        else {cout << "Negative\n"; return;}
-    }
+    cout << ans << "\n";
 
     return;
 }
