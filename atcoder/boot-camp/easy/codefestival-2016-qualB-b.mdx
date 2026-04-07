@@ -1,6 +1,6 @@
 ---
 id: codefestival-2016-qualB-b
-resource: atcoder 
+resource: AtCoder
 title: Qualification Simulator
 author: Azer Aslanov
 ---
@@ -49,24 +49,24 @@ int main() {
 	int passed = 0;
 	int overseasPassed = 0;
 
-	for (char ch : S) {
-		if (ch == 'a') {
+	for (int i = 0; i < N; i++) {
+		if (S[i] == 'a') {
 			if (passed < A + B) {
-				cout << "Yes\n";
+				cout << "Yes" << '\n';
 				passed++;
 			} else {
-				cout << "No\n";
+				cout << "No" << '\n';
 			}
-		} else if (ch == 'b') {
+		} else if (S[i] == 'b') {
 			if (passed < A + B && overseasPassed < B) {
-				cout << "Yes\n";
+				cout << "Yes" << '\n';
 				passed++;
 				overseasPassed++;
 			} else {
-				cout << "No\n";
+				cout << "No" << '\n';
 			}
 		} else {
-			cout << "No\n";
+			cout << "No" << '\n';
 		}
 	}
 

@@ -23,24 +23,26 @@ Rearranging gives:
 x = ceil((B - 1) / (A - 1))
 ```
 
-## Implementation 
+## Implementation
 
 **Time Complexity:** $O(1)$
 
-```cpp 
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
-int main() {
-    ll a, b; 
-    cin >> a >> b; 
-    ll ans = 0, cnt = 1; 
-    while (cnt < b) {
-        cnt--; 
-        cnt += a; 
 
-        ans++; 
+int main() {
+    long long a, b;
+    cin >> a >> b;
+
+    long long ans = 0, cnt = 1;
+    while (cnt < b) {
+        cnt--;
+        cnt += a;
+        ans++;
     }
-    cout << ans << "\n";     
+
+    cout << ans << '\n';
     return 0;
 }
 ```

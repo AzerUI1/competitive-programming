@@ -1,0 +1,54 @@
+---
+id: abc149-c
+resource: AtCoder
+title: Next Prime
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc149/tasks/abc149_c)
+
+## Explanation
+
+To solve the problem, we need to find the smallest prime number that is greater than or equal to a given number `n`.
+To do this, we can follow these steps:
+1. Create a function to check if a number is prime.
+2. Start from `n` and keep checking if the number is prime.
+3. If it is prime, return that number. If not, increment the number and check again.
+Here is the implementation in C++:
+
+## Implementation
+
+**Time Complexity:** $O(\sqrt{n})$
+
+```cpp
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    long long n;
+    cin >> n;
+
+    while (true) {
+        bool isPrime = true;
+        if (n < 2) {
+            isPrime = false;
+        } else {
+            for (long long i = 2; i * i <= n; i++) {
+                if (n % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            cout << n << '\n';
+            break;
+        }
+        n++;
+    }
+
+    return 0;
+}
+```

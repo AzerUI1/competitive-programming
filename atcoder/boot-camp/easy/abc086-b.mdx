@@ -1,6 +1,6 @@
 ---
 id: abc086-b
-source: AtCoder
+resource: AtCoder
 title: 1 21
 author: Azer Aslanov
 ---
@@ -35,7 +35,12 @@ int main() {
 
     int x = sqrt(n);
 
-    if (x * x == n) cout << "Yes";
-    else cout << "No";
+    if (x * x == n) {
+        cout << "Yes" << '\n';
+    } else {
+        cout << "No" << '\n';
+    }
+
+    return 0;
 }
 ```
