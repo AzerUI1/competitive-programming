@@ -1,0 +1,35 @@
+---
+id: abc068-b
+resource: AtCoder
+title: Break Number
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc068/tasks/abc068_b)
+
+## Explanation
+
+The problem is asking us to determine if a given number can be expressed as the sum of two positive integers. To solve this, we can check if the number is greater than 2. If it is, then we can express it as the sum of two positive integers (for example, 3 can be expressed as 1 + 2). If it's less than or equal to 2, then it's not possible to express it as the sum of two positive integers.
+
+## Implementation
+
+**Time Complexity:** $O(1)$
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    if (n > 2) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+
+    return 0;
+}
+```
