@@ -1,0 +1,57 @@
+---
+id: abc079-c
+resource: AtCoder
+title: Train Ticket
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc079/tasks/abc079_c)
+
+## Explanation
+
+We are given four digits $A,B,C,D$ and must choose operators `+` or `-` between them so that:
+
+$$A \;op_1\; B \;op_2\; C \;op_3\; D = 7.$$
+
+There are only $2^3 = 8$ ways to choose `(op1, op2, op3)`, so we can brute force all combinations.
+
+For each combination, evaluate the expression, and once it equals `7`, print it in the required format (no spaces) followed by `=7`.
+
+The statement guarantees at least one solution.
+
+## Implementation
+
+**Time Complexity:** $O(1)$ (8 checks)
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	string s;
+	cin >> s;
+
+	int A = s[0] - '0';
+	int B = s[1] - '0';
+	int C = s[2] - '0';
+	int D = s[3] - '0';
+
+	for (int mask = 0; mask < 8; mask++) {
+		int value = A;
+		char op1 = (mask & 1) ? '+' : '-';
+		char op2 = (mask & 2) ? '+' : '-';
+		char op3 = (mask & 4) ? '+' : '-';
+
+		value += (op1 == '+') ? B : -B;
+		value += (op2 == '+') ? C : -C;
+		value += (op3 == '+') ? D : -D;
+
+		if (value == 7) {
+			cout << A << op1 << B << op2 << C << op3 << D << "=7\n";
+			return 0;
+		}
+	}
+
+	return 0; // guaranteed not to happen
+}
+```
