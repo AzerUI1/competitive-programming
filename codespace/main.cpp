@@ -13,36 +13,33 @@ using ll = long long;
 
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL)
 
-typedef vector<ll> vec_ll;
+using vec_ll = vector<ll>;
 // typedef tree<int, null_type, less<int>, rb_tree_tag,
 //              tree_order_statistics_node_update> indexed_set;
 
 const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
-void solve() {
-    string a, b;
-    cin >> a >> b;
+void solve_case() {
+    ll d, n;
+    cin >> d >> n;
 
-    string ans = "";
-
-    for (ll i = 0; i < max(a.size(), b.size()); i++) {
-        ans += a[i];
-        ans += b[i];
+    ll power = 1;
+    for (ll i = 0; i < d; i++) {
+        power *= 100;
     }
 
-    cout << ans << "\n";
-
-    return;
+    ll base = (n == 100 ? 101 : n);
+    cout << base * power << "\n";
 }
 
 int main() {
     fast_io;
 
-    int t = 1;
-    // cin >> t;
-    while (t--) {
-        solve();
+    int test_cases = 1;
+    // cin >> test_cases;
+    while (test_cases--) {
+        solve_case();
     }
 
     return 0;
