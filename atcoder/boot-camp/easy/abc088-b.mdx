@@ -1,0 +1,52 @@
+---
+id: abc088-b
+resource: AtCoder
+title: Card Game for Two
+author: Azer Aslanov
+---
+
+[Official Problem](https://atcoder.jp/contests/abc088/tasks/abc088_b)
+
+## Explanation
+
+Alice and Bob take turns picking the largest remaining card. This is optimal for both players, because picking a smaller card can never increase your final score difference when the other player can take the larger one next.
+
+So we can simulate the game by sorting all card values in decreasing order:
+
+1. Sort array `a` descending.
+2. Alice takes `a[0], a[2], a[4], ...`.
+3. Bob takes `a[1], a[3], a[5], ...`.
+4. Output `(Alice sum) - (Bob sum)`.
+
+## Implementation
+
+**Time Complexity:** $O(N \log N)$
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+
+	vector<int> a(n);
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+
+	sort(a.rbegin(), a.rend());
+
+	int alice = 0, bob = 0;
+	for (int i = 0; i < n; i++) {
+		if (i % 2 == 0) {
+			alice += a[i];
+		} else {
+			bob += a[i];
+		}
+	}
+
+	cout << (alice - bob) << '\n';
+	return 0;
+}
+```
