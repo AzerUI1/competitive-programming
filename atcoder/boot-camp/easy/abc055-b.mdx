@@ -39,14 +39,14 @@ This works because modular multiplication is associative:
 using namespace std;
 
 int main() {
-	const long long MOD = 1000000007LL;
+	const long long mod = 1000000007LL;
 
 	int n;
 	cin >> n;
 
 	long long ans = 1;
 	for (int i = 1; i <= n; i++) {
-		ans = (ans * i) % MOD;
+		ans = (ans * i) % mod;
 	}
 
 	cout << ans << '\n';

@@ -24,23 +24,25 @@ int main() {
     cin >> k >> w >> n;
 
     long long total_cost = (long long)w * (w + 1) / 2 * k;
-    long long borrow = total_cost - n;
+    long long borrow_amount = total_cost - n;
 
-    if (borrow < 0) {
-        borrow = 0;
+    if (borrow_amount < 0) {
+        borrow_amount = 0;
     }
 
-    cout << borrow << endl;
+    cout << borrow_amount << endl;
     return 0;
 }
+
+```
 
 ```python
 k, w, n = map(int, input().split())
 total_cost = w * (w + 1) // 2 * k
-borrow = total_cost - n
-if borrow < 0:
-    borrow = 0
-print(borrow)
+borrow_amount = total_cost - n
+if borrow_amount < 0:
+    borrow_amount = 0
+print(borrow_amount)
 ```
 
 ```java
@@ -52,11 +54,11 @@ public class Main {
         int w = scanner.nextInt();
         int n = scanner.nextInt();
         long total_cost = (long)w * (w + 1) / 2 * k;
-        long borrow = total_cost - n;
-        if (borrow < 0) {
-            borrow = 0;
+        long borrow_amount = total_cost - n;
+        if (borrow_amount < 0) {
+            borrow_amount = 0;
         }
-        System.out.println(borrow);
+		System.out.println(borrow_amount);
     }
 }
 ```

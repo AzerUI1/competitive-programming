@@ -14,7 +14,7 @@ We process participants from rank `1` to rank `N`.
 Keep two counters:
 
 - `passed`: total number of accepted participants so far.
-- `overseasPassed`: number of accepted overseas students (`'b'`) so far.
+- `overseas_passed`: number of accepted overseas students (`'b'`) so far.
 
 Rules while scanning each character in `S`:
 
@@ -23,7 +23,7 @@ Rules while scanning each character in `S`:
 - If `S[i] == 'b'` (overseas student):
   Accept if both are true:
   - `passed < A + B`
-  - `overseasPassed < B`
+	- `overseas_passed < B`
 - If `S[i] == 'c'` (not a student):
   Reject.
 
@@ -41,27 +41,27 @@ For each participant, print:
 using namespace std;
 
 int main() {
-	int N, A, B;
-	string S;
-	cin >> N >> A >> B;
-	cin >> S;
+	int n, a, b;
+	string s;
+	cin >> n >> a >> b;
+	cin >> s;
 
 	int passed = 0;
-	int overseasPassed = 0;
+	int overseas_passed = 0;
 
-	for (int i = 0; i < N; i++) {
-		if (S[i] == 'a') {
-			if (passed < A + B) {
+	for (int i = 0; i < n; i++) {
+		if (s[i] == 'a') {
+			if (passed < a + b) {
 				cout << "Yes" << '\n';
 				passed++;
 			} else {
 				cout << "No" << '\n';
 			}
-		} else if (S[i] == 'b') {
-			if (passed < A + B && overseasPassed < B) {
+		} else if (s[i] == 'b') {
+			if (passed < a + b && overseas_passed < b) {
 				cout << "Yes" << '\n';
 				passed++;
-				overseasPassed++;
+				overseas_passed++;
 			} else {
 				cout << "No" << '\n';
 			}

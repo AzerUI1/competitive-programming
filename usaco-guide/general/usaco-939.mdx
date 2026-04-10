@@ -85,38 +85,38 @@ import java.util.*;
 
 public class BucketBrigade {
 	public static void main(String[] args) throws IOException {
-		int barnI = 0, barnJ = 0, rockI = 0, rockJ = 0, lakeI = 0, lakeJ = 0;
+		int barn_i = 0, barn_j = 0, rock_i = 0, rock_j = 0, lake_i = 0, lake_j = 0;
 		Kattio io = new Kattio("buckets");
 		for (int i = 0; i < 10; i++) {
 			String row = io.next();
 			for (int j = 0; j < 10; j++) {
 				if (row.charAt(j) == 'B') {
-					barnI = i;
-					barnJ = j;
+					barn_i = i;
+					barn_j = j;
 				} else if (row.charAt(j) == 'R') {
-					rockI = i;
-					rockJ = j;
+					rock_i = i;
+					rock_j = j;
 				} else if (row.charAt(j) == 'L') {
-					lakeI = i;
-					lakeJ = j;
+					lake_i = i;
+					lake_j = j;
 				}
 			}
 		}
 
 		// distance without accounting for the rock
-		int cows = Math.abs(barnI - lakeI) + Math.abs(barnJ - lakeJ) - 1;
+		int cows = Math.abs(barn_i - lake_i) + Math.abs(barn_j - lake_j) - 1;
 
 		// if the barn, lake and rock are in the same row
 		// and the rock is between the barn and the lake
-		if (barnI == lakeI && barnI == rockI &&
-		    ((lakeJ < rockJ && rockJ < barnJ) || (barnJ < rockJ && rockJ < lakeJ))) {
+		if (barn_i == lake_i && barn_i == rock_i &&
+		    ((lake_j < rock_j && rock_j < barn_j) || (barn_j < rock_j && rock_j < lake_j))) {
 			cows += 2;
 		}
 		// if the barn, lake and rock are in the same column
 		// and the rock is between the barn and the lake
-		else if (barnJ == lakeJ && barnJ == rockJ &&
-		         ((lakeI < rockI && rockI < barnI) ||
-		          (barnI < rockI && rockI < lakeI))) {
+		else if (barn_j == lake_j && barn_j == rock_j &&
+		         ((lake_i < rock_i && rock_i < barn_i) ||
+		          (barn_i < rock_i && rock_i < lake_i))) {
 			cows += 2;
 		}
 		io.println(cows);

@@ -29,8 +29,8 @@ int main() {
 	freopen("word.out", "w", stdout);
 
 	// Read N & K.
-	int N, K;
-	cin >> N >> K;
+	int n, k;
+	cin >> n >> k;
 
 	/*
 	 * This variable is used for storing the number of characters
@@ -38,21 +38,21 @@ int main() {
 	 */
 	int word_length = 0;
 
-	for (int i = 0; i < N; i++) {
-		string S;
-		cin >> S;  // Read the next word.
-		word_length += S.length();
+	for (int i = 0; i < n; i++) {
+		string word;
+		cin >> word;  // Read the next word.
+		word_length += word.length();
 
 		// If it still satisfies the constraint, print the word on the same
 		// line.
-		if (word_length <= K) {
+		if (word_length <= k) {
 			// If it isn't the first ever word, print a space character.
 			if (i > 0) { cout << " "; }
-			cout << S;
+			cout << word;
 		} else {
 			// If it's over the line limit, print a new line first.
-			cout << '\n' << S;
-			word_length = S.length();
+			cout << '\n' << word;
+			word_length = word.length();
 		}
 	}
 }
@@ -70,29 +70,29 @@ public class WordProcessor {
 		BufferedReader in = new BufferedReader(new FileReader("word.in"));
 
 		StringTokenizer st = new StringTokenizer(in.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int K = Integer.parseInt(st.nextToken());
+		int n = Integer.parseInt(st.nextToken());
+		int k = Integer.parseInt(st.nextToken());
 
 		st = new StringTokenizer(in.readLine());
-		String[] words = new String[N];
-		for (int i = 0; i < N; i++) { words[i] = st.nextToken(); }
+		String[] words = new String[n];
+		for (int i = 0; i < n; i++) { words[i] = st.nextToken(); }
 
 		PrintWriter out = new PrintWriter("word.out");
 
-		List<String> currentLine = new ArrayList<>();
-		int currentLineLength = 0;
+		List<String> current_line = new ArrayList<>();
+		int current_line_length = 0;
 		for (String word : words) {
-			if (currentLineLength + word.length() <= K) {
-				currentLine.add(word);
-				currentLineLength += word.length();
+			if (current_line_length + word.length() <= k) {
+				current_line.add(word);
+				current_line_length += word.length();
 			} else {
-				out.println(String.join(" ", currentLine));
-				currentLine.clear();
-				currentLine.add(word);
-				currentLineLength = word.length();
+				out.println(String.join(" ", current_line));
+				current_line.clear();
+				current_line.add(word);
+				current_line_length = word.length();
 			}
 		}
-		out.println(String.join(" ", currentLine));
+		out.println(String.join(" ", current_line));
 
 		out.close();
 	}
@@ -119,17 +119,17 @@ int main() {
 	freopen("word.in", "r", stdin);
 	freopen("word.out", "w", stdout);
 
-	int N, K;
-	cin >> N >> K;
+	int n, k;
+	cin >> n >> k;
 
 	// Number of characters on the current line (not including spaces)
 	int word_len = 0;
-	for (int i = 0; i < N; i++) {
+	for (int i = 0; i < n; i++) {
 		string word;
 		cin >> word;
 		// Get the new length if we were to put the word on the current line.
 		word_len += word.length();
-		if (word_len <= K) {
+		if (word_len <= k) {
 			// Print a space if it isn't the first word.
 			if (i != 0) { cout << ' '; }
 			cout << word;
@@ -153,19 +153,19 @@ public class Word {
 		BufferedReader read = new BufferedReader(new FileReader("word.in"));
 		StringTokenizer initial = new StringTokenizer(read.readLine());
 		initial.nextToken();  // we won't need N
-		int maxWidth = Integer.parseInt(initial.nextToken());
+		int max_width = Integer.parseInt(initial.nextToken());
 
 		String[] essay = read.readLine().split(" ");
 		StringBuilder formatted = new StringBuilder();
-		int rnLength = 0;
+		int rn_length = 0;
 		for (String w : essay) {
-			if (rnLength + w.length() > maxWidth) {
+			if (rn_length + w.length() > max_width) {
 				formatted.deleteCharAt(formatted.length() - 1);
 				formatted.append('\n');
-				rnLength = 0;
+				rn_length = 0;
 			}
 			formatted.append(w).append(' ');
-			rnLength += w.length();
+			rn_length += w.length();
 		}
 		formatted.deleteCharAt(formatted.length() - 1);
 

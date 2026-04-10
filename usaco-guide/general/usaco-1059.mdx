@@ -22,16 +22,16 @@ By Jeffrey Meng
 using namespace std;
 
 int main() {
-	int numbers[7];
-	for (int i = 0; i < 7; i++) { cin >> numbers[i]; }
+	int nums[7];
+	for (int i = 0; i < 7; i++) { cin >> nums[i]; }
 
-	sort(numbers, numbers + 7);
+	sort(nums, nums + 7);
 
-	int A = numbers[0];
-	int B = numbers[1];
-	int C = numbers[6] - A - B;
+	int a = nums[0];
+	int b = nums[1];
+	int c = nums[6] - a - b;
 
-	cout << A << " " << B << " " << C << endl;
+	cout << a << " " << b << " " << c << endl;
 }
 ```
 
@@ -47,16 +47,16 @@ public class DoYouKnowYourABCs {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 		StringTokenizer st = new StringTokenizer(in.readLine());
-		int[] numbers = new int[7];
-		for (int i = 0; i < 7; i++) { numbers[i] = Integer.parseInt(st.nextToken()); }
+		int[] nums = new int[7];
+		for (int i = 0; i < 7; i++) { nums[i] = Integer.parseInt(st.nextToken()); }
 
-		Arrays.sort(numbers);
+		Arrays.sort(nums);
 
-		int A = numbers[0];
-		int B = numbers[1];
-		int C = numbers[6] - A - B;
+		int a = nums[0];
+		int b = nums[1];
+		int c = nums[6] - a - b;
 
-		System.out.println(A + " " + B + " " + C);
+		System.out.println(a + " " + b + " " + c);
 	}
 }
 ```

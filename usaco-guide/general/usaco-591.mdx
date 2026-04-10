@@ -35,29 +35,29 @@ int main() {
 	freopen("promote.out", "w", stdout);
 
 	// read in counts for bronze
-	int bronzeBefore, bronzeAfter;
-	cin >> bronzeBefore >> bronzeAfter;
+	int bronze_before, bronze_after;
+	cin >> bronze_before >> bronze_after;
 
 	// read in counts for silver
-	int silverBefore, silverAfter;
-	cin >> silverBefore >> silverAfter;
+	int silver_before, silver_after;
+	cin >> silver_before >> silver_after;
 
 	// read in counts for gold
-	int goldBefore, goldAfter;
-	cin >> goldBefore >> goldAfter;
+	int gold_before, gold_after;
+	cin >> gold_before >> gold_after;
 
 	// read in counts for platinum
-	int platinumBefore, platinumAfter;
-	cin >> platinumBefore >> platinumAfter;
+	int platinum_before, platinum_after;
+	cin >> platinum_before >> platinum_after;
 
 	// do the computations
-	int goldToPlatinum = platinumAfter - platinumBefore;
-	int silverToGold = goldAfter - goldBefore + platinumAfter - platinumBefore;
-	int bronzeToSilver = silverAfter - silverBefore + goldAfter - goldBefore +
-	                     platinumAfter - platinumBefore;
+	int gold_to_platinum = platinum_after - platinum_before;
+	int silver_to_gold = gold_after - gold_before + platinum_after - platinum_before;
+	int bronze_to_silver = silver_after - silver_before + gold_after - gold_before +
+	                     platinum_after - platinum_before;
 
 	// print the answers
-	cout << bronzeToSilver << "\n" << silverToGold << "\n" << goldToPlatinum;
+	cout << bronze_to_silver << "\n" << silver_to_gold << "\n" << gold_to_platinum;
 
 	return 0;
 }
@@ -73,23 +73,23 @@ import java.util.*;
 public class PromotionCounting {
 	public static void main(String[] args) throws IOException {
 		Kattio io = new Kattio("promote");
-		int bronzeBefore = io.nextInt();
-		int bronzeAfter = io.nextInt();
-		int silverBefore = io.nextInt();
-		int silverAfter = io.nextInt();
-		int goldBefore = io.nextInt();
-		int goldAfter = io.nextInt();
-		int platinumBefore = io.nextInt();
-		int platinumAfter = io.nextInt();
+		int bronze_before = io.nextInt();
+		int bronze_after = io.nextInt();
+		int silver_before = io.nextInt();
+		int silver_after = io.nextInt();
+		int gold_before = io.nextInt();
+		int gold_after = io.nextInt();
+		int platinum_before = io.nextInt();
+		int platinum_after = io.nextInt();
 
-		int goldToPlatinum = platinumAfter - platinumBefore;
-		int silverToGold = goldAfter - goldBefore + platinumAfter - platinumBefore;
-		int bronzeToSilver = silverAfter - silverBefore + goldAfter - goldBefore +
-		                     platinumAfter - platinumBefore;
+		int gold_to_platinum = platinum_after - platinum_before;
+		int silver_to_gold = gold_after - gold_before + platinum_after - platinum_before;
+		int bronze_to_silver = silver_after - silver_before + gold_after - gold_before +
+		                     platinum_after - platinum_before;
 
-		io.println(bronzeToSilver);
-		io.println(silverToGold);
-		io.println(goldToPlatinum);
+		io.println(bronze_to_silver);
+		io.println(silver_to_gold);
+		io.println(gold_to_platinum);
 		io.close();
 	}
 
@@ -160,24 +160,24 @@ void setIO(string name = "") {
 int main() {
 	setIO("promote");
 
-	int bronzeBefore, bronzeAfter;
-	cin >> bronzeBefore >> bronzeAfter;
+	int bronze_before, bronze_after;
+	cin >> bronze_before >> bronze_after;
 
-	int silverBefore, silverAfter;
-	cin >> silverBefore >> silverAfter;
+	int silver_before, silver_after;
+	cin >> silver_before >> silver_after;
 
-	int goldBefore, goldAfter;
-	cin >> goldBefore >> goldAfter;
+	int gold_before, gold_after;
+	cin >> gold_before >> gold_after;
 
-	int platBefore, platAfter;
-	cin >> platBefore >> platAfter;
+	int plat_before, plat_after;
+	cin >> plat_before >> plat_after;
 
-	int goldToPlatinum = platAfter - platBefore;
-	int silverToGold = platAfter + goldAfter - platBefore - goldBefore;
-	int bronzeToSilver =
-	    silverAfter + goldAfter + platAfter - silverBefore - goldBefore - platBefore;
+	int gold_to_platinum = plat_after - plat_before;
+	int silver_to_gold = plat_after + gold_after - plat_before - gold_before;
+	int bronze_to_silver =
+	    silver_after + gold_after + plat_after - silver_before - gold_before - plat_before;
 
-	cout << bronzeToSilver << "\n" << silverToGold << "\n" << goldToPlatinum << "\n";
+	cout << bronze_to_silver << "\n" << silver_to_gold << "\n" << gold_to_platinum << "\n";
 }
 ```
 
@@ -196,34 +196,34 @@ public class promote {
 
 		// read in counts for bronze
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int bronzeBefore = Integer.parseInt(st.nextToken());
-		int bronzeAfter = Integer.parseInt(st.nextToken());
+		int bronze_before = Integer.parseInt(st.nextToken());
+		int bronze_after = Integer.parseInt(st.nextToken());
 
 		// read in counts for silver
 		st = new StringTokenizer(br.readLine());
-		int silverBefore = Integer.parseInt(st.nextToken());
-		int silverAfter = Integer.parseInt(st.nextToken());
+		int silver_before = Integer.parseInt(st.nextToken());
+		int silver_after = Integer.parseInt(st.nextToken());
 
 		// read in counts for gold
 		st = new StringTokenizer(br.readLine());
-		int goldBefore = Integer.parseInt(st.nextToken());
-		int goldAfter = Integer.parseInt(st.nextToken());
+		int gold_before = Integer.parseInt(st.nextToken());
+		int gold_after = Integer.parseInt(st.nextToken());
 
 		// read in counts for platinum
 		st = new StringTokenizer(br.readLine());
-		int platinumBefore = Integer.parseInt(st.nextToken());
-		int platinumAfter = Integer.parseInt(st.nextToken());
+		int platinum_before = Integer.parseInt(st.nextToken());
+		int platinum_after = Integer.parseInt(st.nextToken());
 
 		// do the computations
-		int goldToPlatinum = platinumAfter - platinumBefore;
-		int silverToGold = goldAfter - goldBefore + platinumAfter - platinumBefore;
-		int bronzeToSilver = silverAfter - silverBefore + goldAfter - goldBefore +
-		                     platinumAfter - platinumBefore;
+		int gold_to_platinum = platinum_after - platinum_before;
+		int silver_to_gold = gold_after - gold_before + platinum_after - platinum_before;
+		int bronze_to_silver = silver_after - silver_before + gold_after - gold_before +
+		                     platinum_after - platinum_before;
 
 		// print the answers
-		pw.println(bronzeToSilver);
-		pw.println(silverToGold);
-		pw.println(goldToPlatinum);
+		pw.println(bronze_to_silver);
+		pw.println(silver_to_gold);
+		pw.println(gold_to_platinum);
 
 		// close output stream
 		pw.close();

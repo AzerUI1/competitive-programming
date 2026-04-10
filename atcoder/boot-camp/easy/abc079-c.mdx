@@ -31,23 +31,23 @@ int main() {
 	string s;
 	cin >> s;
 
-	int A = s[0] - '0';
-	int B = s[1] - '0';
-	int C = s[2] - '0';
-	int D = s[3] - '0';
+	int a = s[0] - '0';
+	int b = s[1] - '0';
+	int c = s[2] - '0';
+	int d = s[3] - '0';
 
 	for (int mask = 0; mask < 8; mask++) {
-		int value = A;
-		char op1 = (mask & 1) ? '+' : '-';
-		char op2 = (mask & 2) ? '+' : '-';
-		char op3 = (mask & 4) ? '+' : '-';
+		int value = a;
+		char op_1 = (mask & 1) ? '+' : '-';
+		char op_2 = (mask & 2) ? '+' : '-';
+		char op_3 = (mask & 4) ? '+' : '-';
 
-		value += (op1 == '+') ? B : -B;
-		value += (op2 == '+') ? C : -C;
-		value += (op3 == '+') ? D : -D;
+		value += (op_1 == '+') ? b : -b;
+		value += (op_2 == '+') ? c : -c;
+		value += (op_3 == '+') ? d : -d;
 
 		if (value == 7) {
-			cout << A << op1 << B << op2 << C << op3 << D << "=7\n";
+			cout << a << op_1 << b << op_2 << c << op_3 << d << "=7\n";
 			return 0;
 		}
 	}
