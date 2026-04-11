@@ -1,3 +1,7 @@
+/*
+Given three arrays a,ba,b and cc, each consisting of nn integers. Find the number of triplets (ai,bj,ck)(ai​,bj​,ck​) such that the inequality ai<bj<ckai​<bj​<ck​ holds.
+*/
+
 /**
     @author: Azer Asalnov
 */
@@ -8,29 +12,39 @@
 
 using namespace std;
 using ll = long long;
-
+using vec_ll = vector<ll>;
 // using namespace __gnu_pbds;
 
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL)
 
-using vec_ll = vector<ll>;
 // typedef tree<int, null_type, less<int>, rb_tree_tag,
 //              tree_order_statistics_node_update> indexed_set;
 
 const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
+
 void solve_case() {
-    ll d, n;
-    cin >> d >> n;
+    ll n, ans = 0;
+    cin >> n;
 
-    ll power = 1;
-    for (ll i = 0; i < d; i++) {
-        power *= 100;
+    vec_ll a(n), b(n), c(n);
+    for (ll i = 0; i < n; i++) cin >> a[i];
+    for (ll i = 0; i < n; i++) cin >> b[i];
+    for (ll i = 0; i < n; i++) cin >> c[i];
+
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+    sort(c.begin(), c.end());
+
+    for (ll i = 0; i < n; i++) {
+        ll count_a = upper_bound(a.begin(), a.end(), b[i] - 1) - a.begin();
+        ll count_c = c.end() - upper_bound(c.begin(), c.end(), b[i]);
+        ans += count_a * count_c;
     }
+    cout << ans << "\n";
 
-    ll base = (n == 100 ? 101 : n);
-    cout << base * power << "\n";
+    return;
 }
 
 int main() {
