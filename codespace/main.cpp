@@ -1,53 +1,90 @@
-/*
-Given three arrays a,ba,b and cc, each consisting of nn integers. Find the number of triplets (ai,bj,ck)(ai​,bj​,ck​) such that the inequality ai<bj<ckai​<bj​<ck​ holds.
-*/
-
 /**
     @author: Azer Asalnov
 */
 
 #include <bits/stdc++.h>
-// #include <ext/pb_ds/assoc_container.hpp>
-// #include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 
 using namespace std;
 using ll = long long;
 using vec_ll = vector<ll>;
-// using namespace __gnu_pbds;
+using namespace __gnu_pbds;
 
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL)
 
-// typedef tree<int, null_type, less<int>, rb_tree_tag,
-//              tree_order_statistics_node_update> indexed_set;
+typedef tree<int, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update> indexed_set;
 
 const ll mod = 1e9 + 7;
 const ll inf = 1e18;
 
+typedef struct node {
+    long long val;
+    struct node* next;
+    struct node* prev;
+} node;
 
 void solve_case() {
-    ll n, ans = 0;
+    ll n;
     cin >> n;
 
-    vec_ll a(n), b(n), c(n);
-    for (ll i = 0; i < n; i++) cin >> a[i];
-    for (ll i = 0; i < n; i++) cin >> b[i];
-    for (ll i = 0; i < n; i++) cin >> c[i];
+    vec_ll arr(n);
+    for (ll i = 0; i < n; i++) cin >> arr[i];
 
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    sort(c.begin(), c.end());
-
-    for (ll i = 0; i < n; i++) {
-        ll count_a = upper_bound(a.begin(), a.end(), b[i] - 1) - a.begin();
-        ll count_c = c.end() - upper_bound(c.begin(), c.end(), b[i]);
-        ans += count_a * count_c;
+    if (n == 0) {
+        cout << 0 << " " << 0;
+        return;
     }
-    cout << ans << "\n";
+
+    if (n == 1) {
+        cout << 1 << " " << 0 << "\n";
+        return;
+    }
+
+    if (n == 2) {
+        cout << 1 << " " << 1 << "\n";
+        return;
+    }
+
+    ll i = 0, j = n - 1;
+    int alice_cnt = 0, bob_cnt = 0;
+    ll alice = arr[i] + 1, bob = arr[j] + 1;
+
+    while (i < j) {
+        alice--;
+        bob--;
+
+        if (alice == 0) {
+            alice_cnt++;
+
+            if (i + 1 == j) {
+                goto next;
+                break;
+            }
+            i++;
+            alice = arr[i];
+        }
+
+        next:
+        if (bob == 0) {
+            bob_cnt++;
+
+            if (j - 1 == i) {
+                break;
+            }
+            j--;
+            bob = arr[j];
+        }
+    }
+    if (alice_cnt + bob_cnt < n) alice_cnt++;
+
+    cout << alice_cnt << " " << bob_cnt << endl;
 
     return;
 }
 
-int main() {
+signed main() {
     fast_io;
 
     int test_cases = 1;
