@@ -32,6 +32,9 @@ env/
 *.so
 *.dylib
 
+# Build artifacts (Java)
+*.class
+
 # Common local/testing files
 input.txt
 output.txt

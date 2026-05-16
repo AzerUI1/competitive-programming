@@ -19,6 +19,7 @@ competitive-programming/
 	templates/
 		cpp/
 		python/
+		java/
 	platforms/
 		codeforces/
 		leetcode/
